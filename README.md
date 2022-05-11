@@ -4,7 +4,7 @@ Drupal 8 example for Cloud Foundry
 
 This example is archived because it is not being actively maintained. Reach out to the cloud.gov [inquiries@cloud.gov](inquiries@cloud.gov) team if you want more information about deploying drupal to cloud.gov.
 
-We are planning to have a Drupal 9 example in the coming months. 
+We are planning to have a Drupal 9 example in the coming months.
 
 This repository demonstrates how to run a production-worthy Drupal 8 site in Cloud Foundry. Folks just getting started with [cloud.gov](https://cloud.gov) can use this as a path from “I have a cloud.gov account” to “I have a production-worthy Drupal site running on a FedRAMP-authorized CSP that I understand how to update, just waiting for me to customize it”.
 
@@ -33,7 +33,7 @@ We'll also provide some guidance on what someone would need to do to reproduce t
     + [Common errors](#common-errors)
       - [Edits to `web/sites/default/xxx` won't go away](#edits-to--web-sites-default-xxx--won-t-go-away)
     + [Start from scratch](#start-from-scratch)
-  
+
 ## Deploying Drupal to Cloud Foundry
 
 We prefer deploying code through a continuous integration system. This ensures
@@ -238,6 +238,8 @@ need, unless the image already exists. It will then use
 "root" in question is the root user _within_ the container. Should we need to
 add dependencies in the future, we can use `bin/composer require` as described
 in Composer's [docs](https://getcomposer.org/doc/03-cli.md#require).
+
+If the installation exits with a list of "Problems", or the error "Your lock file does not contain a compatible set of packages", please run `bin/composer update`. This will pull and install the latest compatible packages. If asked "Do you trust [package]...", type `y` and enter to allow these plugins.
 
 Next, we can start our application:
 
